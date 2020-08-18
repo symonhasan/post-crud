@@ -1,9 +1,8 @@
 import React from "react";
 import "./CreatePost.css";
 import { useLocation, useHistory } from "react-router";
-import CatagorySelector from "./CatagorySelector";
 
-const CreatePost = (props) => {
+const CreateCatagory = (props) => {
     const location = useLocation();
     const history = useHistory();
 
@@ -11,31 +10,29 @@ const CreatePost = (props) => {
         <div className="modal">
             <div className="modal-body">
                 <div className="modal-header">
-                    <span className="modal-title">{props.title}</span>
+                    <span className="modal-title">Create Catagory</span>
                     <span
                         className="modal-close"
                         onClick={() => {
-                            history.push(location.pathname);
+                            history.push(`${location.pathname}#create-post`);
                         }}
                     >
                         &times;
                     </span>
                 </div>
                 <div className="modal-content">
-                    <textarea
+                    <input
                         className="post-textarea"
-                        placeholder="What's on your mind?"
-                        rows="4"
-                        cols="50"
+                        placeholder="Catagory Name"
+                        type="text"
                     />
-                    <CatagorySelector />
                 </div>
                 <div className="modal-footer">
-                    <button type="button">Post</button>
+                    <button type="button">Save</button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default CreatePost;
+export default CreateCatagory;
