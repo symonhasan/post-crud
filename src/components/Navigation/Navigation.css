@@ -12,6 +12,8 @@
     color: #27ad6a;
     margin: 0;
     letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
 }
 .site-header span{
     color: black;

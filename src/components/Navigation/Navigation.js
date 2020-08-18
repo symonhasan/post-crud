@@ -5,9 +5,9 @@ import "./Navigation.css";
 const Navigation = (props) => {
     return (
         <div className="navigation">
-            <p className="site-header">
+            <NavLink to="/" className="site-header">
                 Post<span>CRUD</span>
-            </p>
+            </NavLink>
             <ul className="nav-links">
                 <NavLink to="#create-post" exact>
                     Create Post
