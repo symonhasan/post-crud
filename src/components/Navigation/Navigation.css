@@ -1,0 +1,30 @@
+.navigation{
+    padding: 0px 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+.site-header{
+    font-size: 1.5rem;
+    color: #27ad6a;
+    margin: 0;
+    letter-spacing: 1px;
+}
+.site-header span{
+    color: black;
+}
+.nav-links{
+    display: flex;
+    flex-flow: row nowrap;
+
+}
+.nav-links a{
+    text-decoration: none;
+    color: black;
+}
+.nav-links a:hover{
+    color: #27ad6a;
+}
