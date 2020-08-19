@@ -74,6 +74,8 @@
 }
 .post-catagory-option{
     background-color: #ffffff;
+    height: 150px;
+    overflow-y: scroll;
 }
 .post-catagory-option li{
     list-style-type: none;
