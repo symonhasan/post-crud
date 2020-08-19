@@ -20,7 +20,7 @@ const CreatePost = (props) => {
             setFeed( props.posts[ id ].feed );
             props.setSelectedCatagory( id );
         }
-    }, [])
+    } , [])
 
     const postButtonOnClick = () => {
         if( location.hash === '#edit-post' ){

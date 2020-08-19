@@ -61,9 +61,11 @@ const reducer = (state = initialState, action) => {
             }
         case "SET_SELECTED_CATAGORY":
             const { id } = action.payload;
+            let newArr = [...state.selectedCatagory , ...state.posts[ id ].catagory ];
+            newArr = new Set( newArr );
             return{
                 ...state,
-                selectedCatagory: [ ...state.selectedCatagory ,...state.posts[ id ].catagory]
+                selectedCatagory: [ ...newArr ]
             }
         case "EDIT_POST":
             const oldPosts = state.posts;
@@ -75,6 +77,13 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 posts: [...oldPosts]
+            }
+        case "DELETE_POST":
+            const arr = state.posts;
+            arr.splice( action.payload.id , 1 );
+            return{
+                ...state,
+                posts: [...arr]
             }
         default:
     }

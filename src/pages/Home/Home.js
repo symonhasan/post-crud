@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 import Navigation from '../../components/Navigation/Navigation';
 import CreatePost from '../../components/Modal/CreatePost';
 import CreateCatagory from '../../components/Modal/CreateCatagory';
 import Post from '../../components/Post/Post';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router';
 
 const Home = ( props ) => {
     console.log( props );
     const hash = props.location.hash;
     const { id } = props.match.params;
+    const history = useHistory();
+    const postDelete = () => {
+        props.deletePost( id );
+        history.replace(`${props.location.pathname}`);
+    }
+
+    useEffect(() => {
+        if( id && hash === "#delete-post")
+        {
+            postDelete();
+        }
+    }, [ id , hash])
+
     return(
         <div className="">
             <Navigation />
@@ -20,8 +34,9 @@ const Home = ( props ) => {
                     })
                 }
             </div>
-            { id && hash === '#edit-post' ? <CreatePost title="Edit Post" />: null }
-            { hash === '#create-post' || hash === '#create-post#create-catagory' || hash === '#edit-post#create-catagory' ? <CreatePost title="Create Post"/> : null}
+            {/* { id && hash === "#delete-post" ? postDelete() : null } */}
+            { id && hash === '#edit-post' || id && hash === '#edit-post#create-catagory' ? <CreatePost title="Edit Post" />: null }
+            { hash === '#create-post' || hash === '#create-post#create-catagory' ? <CreatePost title="Create Post"/> : null}
             { hash === '#create-post#create-catagory' || hash === '#edit-post#create-catagory' ? <CreateCatagory /> : null }
         </div>
     )
@@ -33,4 +48,17 @@ const mapStateToProps = ( state ) => {
     }
 }
 
-export default connect( mapStateToProps )( Home );
+const mapDispatchToProps = ( dispatch ) => {
+    return{
+        deletePost: ( id ) => {
+            dispatch({
+                type: "DELETE_POST",
+                payload: {
+                    id: id,
+                }
+            })
+        }
+    }
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )( Home );

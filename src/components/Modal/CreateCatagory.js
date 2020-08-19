@@ -10,7 +10,11 @@ const CreateCatagory = (props) => {
 
     const catagorySaveOnClick = () => {
         props.saveNewCatagory( catagoryName );
-        history.goBack();
+        if( location.hash === "#edit-post#create-catagory" )
+            history.replace(`${location.pathname}#edit-post`);
+        else{
+            history.replace(`${location.pathname}#create-post`);
+        }
     }
 
     return (
