@@ -8,13 +8,12 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
 
 const Home = ( props ) => {
-    console.log( props );
     const hash = props.location.hash;
     const { id } = props.match.params;
     const history = useHistory();
     const postDelete = () => {
         props.deletePost( id );
-        history.replace(`${props.location.pathname}`);
+        history.replace(`/post`);
     }
 
     useEffect(() => {
@@ -34,7 +33,6 @@ const Home = ( props ) => {
                     })
                 }
             </div>
-            {/* { id && hash === "#delete-post" ? postDelete() : null } */}
             { id && hash === '#edit-post' || id && hash === '#edit-post#create-catagory' ? <CreatePost title="Edit Post" />: null }
             { hash === '#create-post' || hash === '#create-post#create-catagory' ? <CreatePost title="Create Post"/> : null}
             { hash === '#create-post#create-catagory' || hash === '#edit-post#create-catagory' ? <CreateCatagory /> : null }
