@@ -1,0 +1,48 @@
+.post-div{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    width: 40vw;
+    border-radius: 4px;
+    box-shadow: 3px 3px 6px #ccc;
+}
+.post-upper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px inset #f7f7f7;
+}
+.post-main{
+    word-wrap: break-word;
+    padding: 15px 0;
+    border-bottom: 1px inset #f7f7f7;
+}
+.post-main span{
+    color: #585858;
+    letter-spacing: 0.5px;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+.post-catagories{
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 10px;
+}
+.post-catagories li{
+    list-style-type: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+    margin-right: 5px;
+    background-color: #F8FAFB;
+    color: #7e7e7e;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'Baloo Tamma 2', cursive;
+    font-style: italic;
+}
+.post-user-name{
+    font-family: 'Baloo Tamma 2', cursive;
+    font-size: 0.9rem;
+}
