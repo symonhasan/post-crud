@@ -1,12 +1,19 @@
 import React from 'react';
 import './Post.css';
+import { NavLink } from 'react-router-dom';
 
 const Post = (props) => {
     return(
         <div className="post-div">
             <div className="post-upper">
                 <span className="post-user-name">User Name</span>
-                <span className="post-menu">...</span>
+                <div className="post-menu">
+                    <span>...</span>
+                    <div className="dropdown-content">
+                        <NavLink to={`/post/${props.id}#edit-post`}>Edit</NavLink>
+                        <NavLink to={`/post/${props.id}#delete-post`}>Delete</NavLink>
+                    </div>
+                </div>
             </div>
             <div className="post-main">
                 <span>{props.feed}</span>

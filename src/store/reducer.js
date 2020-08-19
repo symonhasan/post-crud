@@ -59,6 +59,23 @@ const reducer = (state = initialState, action) => {
                 posts: [...posts],
                 selectedCatagory: []
             }
+        case "SET_SELECTED_CATAGORY":
+            const { id } = action.payload;
+            return{
+                ...state,
+                selectedCatagory: [ ...state.selectedCatagory ,...state.posts[ id ].catagory]
+            }
+        case "EDIT_POST":
+            const oldPosts = state.posts;
+            oldPosts.splice( action.payload.id , 1 );
+            oldPosts.splice( action.payload.id , 0 , {
+                feed: action.payload.feed,
+                catagory: state.selectedCatagory
+            })
+            return{
+                ...state,
+                posts: [...oldPosts]
+            }
         default:
     }
     return state;

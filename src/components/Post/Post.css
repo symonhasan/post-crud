@@ -46,3 +46,32 @@
     font-family: 'Baloo Tamma 2', cursive;
     font-size: 0.9rem;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 8px 6px 0px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    padding: 0 5px;
+}
+.dropdown-content a{
+    text-decoration: none;
+    padding: 10px 0px;
+    border-bottom: 1px inset #f7f7f7;
+    color: #585858;
+}
+.dropdown-content a:hover{
+    color: #27ad6a;
+}
+.post-menu{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.post-menu:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}

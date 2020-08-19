@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/:id" exact component={Home} />
+        <Route path="/post/:id" component={Home} />
         <Route path="/" component={Home}/>
       </Switch>
     </BrowserRouter>

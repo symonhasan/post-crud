@@ -16,7 +16,7 @@ const Home = ( props ) => {
             <div className="posts-area">
                 {
                     props.posts.map( ( element , index ) => {
-                        return <Post key={index} feed={element.feed} catagories={element.catagory}/>
+                        return <Post key={index} id={index} feed={element.feed} catagories={element.catagory}/>
                     })
                 }
             </div>

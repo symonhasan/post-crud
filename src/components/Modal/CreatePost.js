@@ -1,21 +1,35 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import "./CreatePost.css";
-import { useLocation, useHistory } from "react-router";
+import { useLocation, useHistory, useParams } from "react-router";
 import CatagorySelector from "./CatagorySelector";
 import { connect } from "react-redux";
 
 const CreatePost = (props) => {
     const location = useLocation();
     const history = useHistory();
+    const params = useParams();
     const [ feed , setFeed ] = useState("");
 
     const postTextAreaOnChange = ( event ) => {
         setFeed( event.target.value );
     }
 
+    useEffect(() => {
+        if( location.hash === '#edit-post' ){
+            const id = params.id;
+            setFeed( props.posts[ id ].feed );
+            props.setSelectedCatagory( id );
+        }
+    }, [])
+
     const postButtonOnClick = () => {
-        props.createNewPost( feed );
-        history.replace(`${location.pathname}`);
+        if( location.hash === '#edit-post' ){
+            props.editPost( params.id , feed );
+            history.replace(`${location.pathname}`);
+        } else{
+            props.createNewPost( feed );
+            history.replace(`${location.pathname}`);
+        }
     }
 
     return (
@@ -52,6 +66,12 @@ const CreatePost = (props) => {
     );
 };
 
+const mapStateToProps = ( state ) => {
+    return{
+        posts: state.posts,
+    }
+}
+
 const mapDispatchToProps = ( dispatch ) => {
     return{
         clearSelectedCatagory: () => {
@@ -66,8 +86,25 @@ const mapDispatchToProps = ( dispatch ) => {
                     feed: feed
                 }
             })
+        },
+        setSelectedCatagory: ( id ) => {
+            dispatch({
+                type: "SET_SELECTED_CATAGORY",
+                payload: {
+                    id: id,
+                }
+            })
+        },
+        editPost: ( id , feed ) => {
+            dispatch({
+                type: "EDIT_POST",
+                payload: {
+                    id: id,
+                    feed: feed
+                }
+            })
         }
     }
 }
 
-export default connect( null, mapDispatchToProps)(CreatePost);
+export default connect( mapStateToProps, mapDispatchToProps)(CreatePost);
