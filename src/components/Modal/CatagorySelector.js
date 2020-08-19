@@ -1,12 +1,23 @@
-import React , { useState } from "react";
+import React, { useState , useEffect } from "react";
 import "./CreatePost.css";
 import { useLocation } from "react-router";
 import { NavLink } from "react-router-dom";
 import dropdown from "../../assets/down-chevron.svg";
+import tick from "../../assets/tick.svg";
 
-const CatagorySelector = () => {
+const CatagorySelector = (props) => {
     const location = useLocation();
     const [postCatClicked, setPostCatClicked] = useState(false);
+    const [title , setTitle ] = useState("");
+
+    useEffect(() => {
+        let newTitle = "";
+        props.selectedCatagory.forEach(element => {
+            if( newTitle !== "" ) newTitle += ' , ';
+            newTitle += element;
+        });
+        setTitle( newTitle );
+    }, [props.selectedCatagory])
 
     const renderPostCatagory = () => {
         return (
@@ -16,9 +27,29 @@ const CatagorySelector = () => {
                 >
                     Create New Catagory
                 </NavLink>
-                <li>Option 1</li>
-                <li>Option 2</li>
-                <li>Option 3</li>
+                <li id="Option 1" onClick={props.selectOnClick}>
+                    Option 1
+                    {props.selectedCatagory.filter(
+                        (element) => element === "Option 1"
+                    ).length ? (
+                        <span>
+                            <img src={tick} height="15px" alt="tick" />
+                        </span>
+                    ) : null}
+                </li>
+                <li id="Option 2" onClick={props.selectOnClick}>
+                    Option 2
+                    {props.selectedCatagory.filter(
+                        (element) => element === "Option 2"
+                    ).length ? (
+                        <span>
+                            <img src={tick} height="15px" alt="tick" />
+                        </span>
+                    ) : null}
+                </li>
+                <li id="Option 3" onClick={props.selectOnClick}>
+                    Option 3
+                </li>
             </div>
         );
     };
@@ -31,7 +62,7 @@ const CatagorySelector = () => {
                 }}
             >
                 <div className="post-catagory-select">
-                    <span>Post Catagory</span>
+                    <span>{title.length ? title : "Post Catagory"}</span>
                 </div>
                 <img src={dropdown} height="15px" alt="down-chevron" />
             </div>
