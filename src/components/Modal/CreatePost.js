@@ -13,6 +13,11 @@ const CreatePost = (props) => {
         setFeed( event.target.value );
     }
 
+    const postButtonOnClick = () => {
+        props.createNewPost( feed );
+        history.replace(`${location.pathname}`);
+    }
+
     return (
         <div className="modal">
             <div className="modal-body">
@@ -40,7 +45,7 @@ const CreatePost = (props) => {
                     <CatagorySelector/>
                 </div>
                 <div className="modal-footer">
-                    <button type="button">Post</button>
+                    <button type="button" onClick={postButtonOnClick}>Post</button>
                 </div>
             </div>
         </div>
@@ -52,6 +57,14 @@ const mapDispatchToProps = ( dispatch ) => {
         clearSelectedCatagory: () => {
             dispatch({
                 type: "CLEAR_SELECTED_CATAGORY"
+            })
+        },
+        createNewPost: ( feed ) => {
+            dispatch({
+                type: "CREATE_POST",
+                payload: {
+                    feed: feed
+                }
             })
         }
     }

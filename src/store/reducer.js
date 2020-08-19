@@ -48,6 +48,17 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 selectedCatagory: []
             }
+        case "CREATE_POST":
+            const posts = state.posts;
+            posts.unshift({
+                feed: action.payload.feed,
+                catagory: [...state.selectedCatagory]
+            })
+            return{
+                ...state,
+                posts: [...posts],
+                selectedCatagory: []
+            }
         default:
     }
     return state;
