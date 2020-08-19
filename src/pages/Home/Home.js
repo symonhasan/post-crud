@@ -33,7 +33,7 @@ const Home = ( props ) => {
                     })
                 }
             </div>
-            { id && hash === '#edit-post' || id && hash === '#edit-post#create-catagory' ? <CreatePost title="Edit Post" />: null }
+            { ( id && hash === '#edit-post' ) || ( id && hash === '#edit-post#create-catagory' ) ? <CreatePost title="Edit Post" />: null }
             { hash === '#create-post' || hash === '#create-post#create-catagory' ? <CreatePost title="Create Post"/> : null}
             { hash === '#create-post#create-catagory' || hash === '#edit-post#create-catagory' ? <CreateCatagory /> : null }
         </div>
