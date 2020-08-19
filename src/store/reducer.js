@@ -76,7 +76,8 @@ const reducer = (state = initialState, action) => {
             })
             return{
                 ...state,
-                posts: [...oldPosts]
+                posts: [...oldPosts],
+                selectedCatagory: []
             }
         case "DELETE_POST":
             const arr = state.posts;
