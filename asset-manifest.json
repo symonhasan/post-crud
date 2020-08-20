@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/post-crud/static/css/main.795861e0.chunk.css",
+    "main.js": "/post-crud/static/js/main.4e2b38b6.chunk.js",
+    "main.js.map": "/post-crud/static/js/main.4e2b38b6.chunk.js.map",
+    "runtime-main.js": "/post-crud/static/js/runtime-main.960e5573.js",
+    "runtime-main.js.map": "/post-crud/static/js/runtime-main.960e5573.js.map",
+    "static/js/2.352b1085.chunk.js": "/post-crud/static/js/2.352b1085.chunk.js",
+    "static/js/2.352b1085.chunk.js.map": "/post-crud/static/js/2.352b1085.chunk.js.map",
+    "index.html": "/post-crud/index.html",
+    "precache-manifest.e241851284487c9d156cfab196f8d5bf.js": "/post-crud/precache-manifest.e241851284487c9d156cfab196f8d5bf.js",
+    "service-worker.js": "/post-crud/service-worker.js",
+    "static/css/main.795861e0.chunk.css.map": "/post-crud/static/css/main.795861e0.chunk.css.map",
+    "static/js/2.352b1085.chunk.js.LICENSE.txt": "/post-crud/static/js/2.352b1085.chunk.js.LICENSE.txt",
+    "static/media/down-chevron.svg": "/post-crud/static/media/down-chevron.2febd8c3.svg",
+    "static/media/tick.svg": "/post-crud/static/media/tick.8b4d6e74.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.960e5573.js",
+    "static/js/2.352b1085.chunk.js",
+    "static/css/main.795861e0.chunk.css",
+    "static/js/main.4e2b38b6.chunk.js"
+  ]
+}
