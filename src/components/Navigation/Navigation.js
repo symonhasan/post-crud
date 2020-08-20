@@ -1,11 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import "./Navigation.css";
 
 const Navigation = (props) => {
+    const location = useLocation();
     return (
         <div className="navigation">
-            <NavLink to="/" className="site-header">
+            <NavLink to={`${location.pathname}`} className="site-header">
                 Post<span>CRUD</span>
             </NavLink>
             <ul className="nav-links">

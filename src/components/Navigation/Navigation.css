@@ -33,3 +33,8 @@
 .nav-links a:hover{
     color: #27ad6a;
 }
+@media only screen and ( max-width: 550px ){
+    .navigation{
+        padding: 0px 25px;
+    }
+}
